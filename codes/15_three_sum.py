@@ -27,9 +27,9 @@ def calc(input:list)->list:
             if input[left] + input[right] == target:
                 res.append([input[i],input[left],input[right]])
                 # 遇到相同的值直接跳过
-                while input[left] == input[left + 1]:
+                while left < right and input[left] == input[left + 1]:
                     left += 1
-                while input[right] == input[right - 1]:
+                while left < right and input[right] == input[right - 1]:
                     right -= 1
                 # 由于已经经过排序，可能的解只能是往里缩
                 left += 1
@@ -43,5 +43,5 @@ def calc(input:list)->list:
     return res
 
 if __name__ == '__main__':
-    input=[1,2,3,-1,-2,-3]
+    input=[-4, -3, -2, -1, 1, 2, 2]
     print(calc(input))
