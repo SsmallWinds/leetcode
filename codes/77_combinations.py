@@ -17,6 +17,8 @@
 思路：
 选数字类型的题目，回溯法，思路同全排列类似 No 46
 
+TODO:: 其他解法 https://leetcode.wang/leetCode-77-Combinations.html
+
 """
 
 def do_combinations(res:list, k:int, start:int, n:int, temp:list) -> None:
