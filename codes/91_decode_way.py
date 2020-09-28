@@ -53,7 +53,7 @@ def do_decode2(s: str, index: int) -> int:
     res1 = do_decode2(s, index + 1)
     res2 = 0
     if index < len(s) - 1:
-        if int(s[index: index + 2]) <= 26:
+        if s[index] != '0' and int(s[index: index + 2]) <= 26:
             res2 = do_decode2(s, index + 2)
     return res1 + res2
 
