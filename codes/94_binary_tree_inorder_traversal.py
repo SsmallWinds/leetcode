@@ -22,9 +22,11 @@ class TreeNode(object):
 
 # 递归
 def inorder_traversal(head:TreeNode, res:list) -> None:
-    res.append(head.val)
+    
     if head.left is not None:
         inorder_traversal(head.left, res)
+
+    res.append(head.val)
 
     if head.right is not None:
         inorder_traversal(head.right, res)
@@ -34,16 +36,17 @@ def inorder_traversal(head:TreeNode, res:list) -> None:
 def inorder_traversal2(head:TreeNode) -> list:
     res = []
     temp = []
-    temp.append(head)
+    cur = head
 
-    while len(temp) > 0:
+    while cur is not None or len(temp) > 0:
+        while cur is not None:
+            temp.append(cur)
+            cur = cur.left
+        
         cur = temp.pop()
         res.append(cur.val)
-        if cur.right is not None:
-            temp.append(cur.right)
-        if cur.left is not None:
-            temp.append(cur.left)
-        
+        cur = cur.right
+
     print(res)
 
 
