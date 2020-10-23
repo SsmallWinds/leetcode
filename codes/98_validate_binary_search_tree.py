@@ -83,7 +83,7 @@ def check2(root:TreeNode) -> bool:
 
     return _do_check(root)
 
-def check3(root:TreeNode, pre:int) -> bool:
+def check3(root:TreeNode) -> bool:
     # 中序遍历
     if root is None:
         return True
@@ -102,6 +102,23 @@ def check3(root:TreeNode, pre:int) -> bool:
 
     return True
 
+pre = None
+
+def check4(root:TreeNode) -> bool:
+    def _do_check(root:TreeNode) -> bool:
+        global pre
+        if root is None:
+            return True
+        if not _do_check(root.left):
+            return False
+        if pre is not None and pre >= root.val:
+            return False
+        pre = root.val
+        if not _do_check(root.right):
+            return False
+        return True
+    return _do_check(root)
+    
 if __name__ == "__main__":
     root = TreeNode(10)
     a1 = TreeNode(5)
@@ -117,4 +134,5 @@ if __name__ == "__main__":
 
     print(check(root))
     print(check2(root))
-    print(check3(root, None))
+    print(check3(root))
+    print(check4(root))
