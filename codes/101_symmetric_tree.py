@@ -86,8 +86,8 @@ def is_symmetric2(left: TreeNode, right: TreeNode) -> bool:
         if len(s_left) != len(s_right):
             return False
 
-        temp_left = s_left.pop(0)
-        temp_right = s_right.pop(0)
+        temp_left = s_left.pop()
+        temp_right = s_right.pop()
         if temp_left.val != temp_right.val:
             return False
 
