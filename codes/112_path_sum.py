@@ -45,6 +45,7 @@ def check_sum(root: TreeNode, sum: int) -> bool:
 
     return do_check_sum(root, sum)
 
+
 # BFS
 def check_sum2(root: TreeNode, sum: int) -> bool:
     if root is None:
@@ -57,7 +58,7 @@ def check_sum2(root: TreeNode, sum: int) -> bool:
         size = len(q)
         for _ in range(size):
             cur = q.pop(0)
-            cur_sum = sums.pop(0))
+            cur_sum = sums.pop(0)
             if is_leaf(cur) and cur_sum == sum:
                 return True
 
