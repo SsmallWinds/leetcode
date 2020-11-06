@@ -55,10 +55,8 @@ def do_check_sum(root: TreeNode, sum: int, res: list, temp: list) -> None:
         return
 
     temp.append(root.val)
-    print("bf", temp, sum)
     do_check_sum(root.left, sum - root.val, res, temp)
     temp.pop()
-    print("af", temp, sum)
 
     temp.append(root.val)
     do_check_sum(root.right, sum - root.val, res, temp)
